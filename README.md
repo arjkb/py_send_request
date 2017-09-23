@@ -12,10 +12,12 @@ The program takes two arguments:
 * First argument is the number of times HTTP GET requests must be sent to the server.
 * Second argument is the file containing the urls to which the requests are to be sent.
 
-For example, if 1000 requests each must be sent to urls in the file `sample_urls.txt`, use the command:
+For example, if 100 requests each must be sent to urls in the file `url_list.txt`, use the command:
 ```
-python send_request 1000 sample_urls.txt
+python send_request 100 url_list.txt
 ```
+
+
 #### Output
 Spits out 4 numbers that may be of interest:
 
