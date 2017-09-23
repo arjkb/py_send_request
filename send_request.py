@@ -30,13 +30,20 @@ def check_url(url_to_check, iteration_count):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("iter_count", help="number of iterations", type=int)
+    parser.add_argument("url_file", help="file that contains urls to test", type=str)
     args = parser.parse_args()
 
-    urls = ["http://www.whsw.edu.cn/?q=freedom",
-            "http://www.whsw.edu.cn/?q=freenet",
-            "http://www.nx.gov.cn/?q=freedom",
-            "http://www.nx.gov.cn/?q=freenet",
-            ]
+    urls = list()
+    with open(args.url_file, 'r') as f:
+        for url in f:
+            urls.append(url.strip())
+
+    print(urls)
+    # urls = ["http://www.whsw.edu.cn/?q=freedom",
+    #         "http://www.whsw.edu.cn/?q=freenet",
+    #         "http://www.nx.gov.cn/?q=freedom",
+    #         "http://www.nx.gov.cn/?q=freenet",
+    #         ]
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
         for url in urls:
