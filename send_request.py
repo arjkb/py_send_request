@@ -15,9 +15,6 @@ def check_url(url_to_check):
                                                 worked_count))
 
 def main():
-    ""
-    test_url = "http://www.whsw.edu.cn/?q=freedom"
-    test_url2 = "http://www.nx.gov.cn/q=freenet"
 
     urls = ["http://www.whsw.edu.cn/q=freedom",
             "http://www.whsw.edu.cn/q=freenet",
