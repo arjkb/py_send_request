@@ -26,7 +26,7 @@ def main():
             "http://www.nx.gov.cn/q=freenet",
             ]
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
         for url in urls:
             executor.submit(check_url, url, args.iter_count)
 
