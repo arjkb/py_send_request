@@ -1,5 +1,6 @@
 import argparse
 import requests
+import concurrent.futures
 
 def check_url(url_to_check, iteration_count):
     blocked_count = 0
@@ -25,9 +26,9 @@ def main():
             "http://www.nx.gov.cn/q=freenet",
             ]
 
-    for url in urls:
-        check_url(url, args.iter_count)
-
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
+        for url in urls:
+            executor.submit(check_url, url, args.iter_count)
 
 if __name__ == '__main__':
     main()
