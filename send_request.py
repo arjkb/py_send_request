@@ -1,5 +1,6 @@
 import argparse
 import requests
+import threading
 
 def check_url(url_to_check, iteration_count):
     blocked_count = 0
@@ -25,8 +26,12 @@ def main():
             "http://www.nx.gov.cn/q=freenet",
             ]
 
+    threads = []
     for url in urls:
-        check_url(url, args.iter_count)
+        t = threading.Thread(target=check_url, args=(url, args.iter_count))
+        threads.append(t)
+        t.start()
+        # check_url(url, args.iter_count)
 
 
 if __name__ == '__main__':
