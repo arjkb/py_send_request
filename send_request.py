@@ -30,11 +30,5 @@ def main():
         for url in urls:
             executor.submit(check_url, url, args.iter_count)
 
-    # for url in urls:
-    #     t = threading.Thread(target=check_url, args=(url, args.iter_count))
-    #     threads.append(t)
-    #     t.start()
-
-
 if __name__ == '__main__':
     main()
