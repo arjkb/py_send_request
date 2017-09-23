@@ -4,7 +4,7 @@ import requests
 def check_url(url_to_check):
     blocked_count = 0
     worked_count = 0
-    for i in range(0):
+    for i in range(10):
         try:
             r = requests.get(url_to_check)
             worked_count += 1
