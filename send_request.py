@@ -19,7 +19,7 @@ def check_url(url_to_check, iteration_count):
             blocked_count += 1
         except:
             weird_count_2 = 0
-        time.sleep(2)
+        time.sleep(1)
     print(" blocked: {}, worked: {}, weird_1: {}, weird_2: {}, URL: {}"
                                         .format(blocked_count,
                                                 worked_count,
@@ -32,10 +32,10 @@ def main():
     parser.add_argument("iter_count", help="number of iterations", type=int)
     args = parser.parse_args()
 
-    urls = ["http://www.whsw.edu.cn/",
-            "http://www.whsw.edu.cn/q=freenet",
-            "http://www.nx.gov.cn/q=freedom",
-            "http://www.nx.gov.cn/q=freenet",
+    urls = ["http://www.whsw.edu.cn/?q=freedom",
+            "http://www.whsw.edu.cn/?q=freenet",
+            "http://www.nx.gov.cn/?q=freedom",
+            "http://www.nx.gov.cn/?q=freenet",
             ]
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
