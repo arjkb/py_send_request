@@ -1,6 +1,19 @@
 import argparse
 import requests
 
+def check_url(url_to_check):
+    blocked_count = 0
+    worked_count = 0
+    for i in range(10):
+        try:
+            r = requests.get(url_to_check)
+            worked_count += 1
+        except Exception as e:
+            blocked_count += 1
+    print(" URL: {} Blocked: {} Worked: {}".format(url_to_check,
+                                                blocked_count,
+                                                worked_count))
+
 def main():
     ""
     test_url = "http://www.whsw.edu.cn/?q=freedom"
@@ -13,18 +26,7 @@ def main():
             ]
 
     for url in urls:
-        exception_count = 0
-        no_exception_count = 0
-        for i in range(1000):
-            try:
-                r = requests.get(url)
-                # print(" Response: {}".format(r.status_code))
-                no_exception_count += 1
-            except Exception as e:
-                exception_count += 1
-                # print(e)
-                # print(" Couldn't establish connection...")
-        print(" {} Blocked: {}, Not blocked: {}".format(url, exception_count, no_exception_count))
+        check_url(url)
 
 
 if __name__ == '__main__':
