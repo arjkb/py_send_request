@@ -27,3 +27,9 @@ Spits out 4 numbers that may be of interest:
 4. weird_2 <br /> An exception other than `requests.exceptions.ConnectionError` was raised.
 
 The URL is also printed along with the corresponding information.
+
+---
+### Collaborators
+
+1. [Ashraf Siddiquee](https://github.com/mashrafsiddiquee)
+2. Humayra Tasnim, University of New Mexico
