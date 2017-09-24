@@ -16,8 +16,10 @@ def check_url(url_to_check, iteration_count):
     worked_count = 0
     weird_count_1 = 0
     weird_count_2 = 0
-    
+
     for i in range(iteration_count):
+        if i % 100 == 0:
+            print(" >>> ", url_to_check, i)
         try:
             r = requests.get(url_to_check)
             if r.status_code == requests.codes.ok:
